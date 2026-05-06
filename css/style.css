@@ -1,0 +1,728 @@
+:root {
+    --font-color: #333333;
+    --orange : #A9A9A9;
+    --box : #D3D3D3;
+    --bg: #FFFFFF;
+}
+
+.bg-video {
+    position: fixed;
+    display: block;
+    object-fit: cover;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.bg-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0.75));
+    pointer-events: none;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: var(--box);
+    /* background-image: url("../img/bg-1.jpg"); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: var(--font-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Audio Player Styles */
+.audio-player-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 6px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 300px;
+}
+
+.player-btn {
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.player-btn:hover {
+    background: #959595;
+    transform: scale(1.1);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.volume-control i {
+    color: var(--orange);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.volume-slider {
+    width: 100%;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ddd;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: var(--orange);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    background: #959595;
+    width: 18px;
+    height: 18px;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: var(--orange);
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    background: #959595;
+    width: 18px;
+    height: 18px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: fadeInSlow 1.8s ease-out forwards;
+    position: relative;
+    margin-top: 0px;
+    padding-top: 60px;
+}
+
+/* Styling untuk section home */
+.home {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.80);
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+}
+
+.home.show-home {
+    animation: slideDown 0.8s ease-out forwards;
+    opacity: 1;
+}
+
+.our {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.80);
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.our-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.time {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--font-color);
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.80);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--font-color);
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.80);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Menyembunyikan elemen rownya */
+.time.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Menyembunyikan elemen rownya */
+.close.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Saat elemen terlihat, jalankan animasinya khusus text rownya */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home .col-lg-6 {
+    flex: 1 1 45%;
+    background: linear-gradient(135deg, rgba(169, 169, 169, 0.25), rgba(149, 149, 149, 0.25));
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    opacity: 0;
+    animation: fadeInSlow 2s ease-in-out 3s forwards;
+    color: white;
+    /* transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
+}
+
+.our .card {
+    background: rgba(255, 255, 255, 0.70);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-in-out forwards;
+    /* transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
+}
+
+.time h1 {
+    font-family: Great Vibes, cursive;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.close h1 {
+    font-family: Great Vibes, cursive;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.our h1 {
+    font-family: Great Vibes, cursive;
+    color: var(--orange);
+    font-weight: bold;
+    margin-top: 7%;
+}
+
+.home h1 {
+    font-family: Great Vibes, cursive;
+    color: var(--orange);
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInSlow 3s ease-in-out 2s forwards;
+    color: white;
+}
+
+.home p {
+    opacity: 0;
+    animation: fadeInSlow 5s ease-in-out 3s forwards;
+    color: white;
+}
+
+.time .col-lg {
+    flex: 1 1 45%;
+    background: rgba(255, 255, 255, 0.65);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.9s ease-in-out, opacity 0s ease-in-out;
+}
+
+.close .col-lg {
+    flex: 1 1 45%;
+    background: rgba(14, 13, 13, 0.18);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.9s ease-in-out, opacity 0s ease-in-out;
+}
+
+.waktu {
+    flex: 1 1 100%;
+    background: rgba(239, 220, 171, 0.18);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    opacity: 0;
+    animation: fadeInSlow 7s ease-in-out 3s forwards;
+    /* transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; */
+}
+
+.story-container {
+    max-width: 90%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.waktu h3 {
+    color: var(--font-color);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.waktu p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    color: var(--font-color);
+    font-weight: bold;
+}
+
+.waktu i {
+    margin-right: 8px;
+    font-size: 1.3rem;
+    color: var(--font-color);
+}
+
+.home .col-lg-6 p {
+    font-size: small;
+}
+
+.our .card p {
+    font-size: small;
+}
+
+.home .col-lg-6 h3 {
+    font-family: Great Vibes, cursive;
+    font-weight: bold;
+    color: white;
+}
+
+.time .col-lg p {
+    font-size: small;
+}
+
+.time .col-lg h3 {
+    font-family: Great Vibes, cursive;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+/* sebelum keliatan khusus col-lg-6 ) */
+.home .col-lg-6.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.time .col-lg.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.close .col-lg.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* ==========================home===================*/
+.home h1,
+.home h3,
+.home p,
+.home .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.home.show h1,
+.home.show h3,
+.home.show p,
+.home.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home .row {
+    gap: 5px;
+}
+/* ===============================endhome======================= */
+.time h1,
+.time h3,
+.time p,
+.time .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.time.show h1,
+.time.show h3,
+.time.show p,
+.time.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ========================endtime===================== */
+.our h1,
+.our p,
+.our .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.our.show h1,
+.our.show p,
+.our.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ==========================endour=============================== */
+
+.close h1,
+.close h3,
+.close p,
+.close .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.close.show h1,
+.close.show h3,
+.close.show p,
+.close.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================endclose================================= */
+
+
+.home.show .col-lg-6 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.time.show .col-lg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.close.show .col-lg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.our.show .col-lg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cover:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+
+}
+
+.cover img {
+    width: 280px;
+    height: auto;
+    /* margin-top: 15px; */
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in-out forwards 1s;
+    position: relative;
+    z-index: 10;
+}
+
+.invert-image {
+    filter: invert(1);
+}
+
+.cover img:hover {
+    transform: scale(1.05);
+}
+
+.cover h4 {
+    font-family: Great Vibes, cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--bg);
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards 0.8s;
+    position: relative;
+    z-index: 10;
+}
+
+.cover p {
+    color: var(--box);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    line-height: 1.6;
+    padding: 0 15px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards 1.2s;
+    position: relative;
+    z-index: 10;
+}
+
+.bismillah-text {
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--bg);
+    text-align: center;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 0.5s;
+    position: relative;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* .cover h2 {
+    font-family: Great Vibes, cursive;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--bg);
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 1s;
+}
+
+.cover p {
+    color: var(--box);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    line-height: 1.6;
+    padding: 0 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 1.2s;
+}
+
+.btn-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: var(--bg);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    width: 200px;
+    padding: 12px 0;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(217, 131, 36, 0.3);
+    border: none;
+    cursor: pointer;
+    margin: 20px auto 0;
+    animation: fadeIn 1s ease-in-out forwards 1s;
+} */
+
+.cover h4 {
+    /* font-family: Great Vibes, cursive; */
+    font-family: Great Vibes, cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--bg);
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards 0.8s;
+}
+
+.cover p {
+    color: var(--box);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    line-height: 1.6;
+    padding: 0 15px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards 1.2s;
+}
+
+.btn-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    width: 200px;
+    padding: 12px 0;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    margin: 20px auto 0;
+    animation: fadeIn 1.2s ease-out forwards 1.6s;
+}
+
+.btn-open:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    color: white;
+}
+
+
+@keyframes fadeInSlow {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

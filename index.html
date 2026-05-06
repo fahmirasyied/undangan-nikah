@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/script.js"></script>
+
+     <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+     <!-- icon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>undangan</title>
+</head>
+
+<body>
+        <!-- Audio Player Controls -->
+        <div class="audio-player-container" id="audioPlayerContainer" style="display: none;">
+            <audio id="myAudio" loop>
+                <source src="audio/wedding.mp3" type="audio/mp3">
+                Browser Anda tidak mendukung audio HTML5.
+            </audio>
+            
+            <div class="audio-player">
+                <button id="playPauseBtn" class="player-btn" title="Play/Pause">
+                    <i class="bi bi-play-fill"></i>
+                </button>
+                
+                <div class="volume-control">
+                    <i class="bi bi-volume-down"></i>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="70" class="volume-slider">
+                    <i class="bi bi-volume-up"></i>
+                </div>
+            </div>
+        </div>
+
+        <section id="cover" class="cover">
+            <img src="img/background.png" alt="background" class="bg-video" style="width: 100%; height: 100%; object-fit: cover; position: fixed; top: 0; left: 0; filter: brightness(50%); z-index: -1;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <img src="img/h2.png" alt="" srcset="" class="invert-image">
+
+                    <p>"Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis)
+                        dirimu
+                        sendiri agar kamu merasa tenteram kepadanya....." <br> QS. Ar-Rum Ayat 21 </p>
+        
+                    <h4>Fahmi Rasyied S.Kom<br>&<br>Siti Aisah S.Ak</h4>
+                    
+                    <a href="#home" type="button" class="btn-open" id="bukaUndangan">Buka Undangan</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="home" class="home">
+            <img src="img/background2.png" alt="" class="bg-video" style="width: 100%; height: 100%; object-fit: cover; position: fixed; top: 0; left: 0; filter: brightness(50%); z-index: -99;">
+            <div class="container">
+                    <h1>Acara Pernikahan</h1>
+                    <p id="guestGreeting">Yth Bapak/Ibu/Saudara/i,<br><span id="guestName"></span></p>
+                    <p>Dengan segala rahmat Allah subhanahuwata'ala <br> kami bermaksud untuk mengundang Bapak/Ibu, Saudara/i, untuk hadir
+                        pada acara pernikahan kami. </p>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                                <h3>Fahmi Rasyied S.Kom</h3>
+                                <p>"Cinta sejati adalah cinta yang membawa seseorang semakin dekat kepada Allah. Jika cinta membuatmu lalai dari-Nya, maka
+                                itu bukan cinta yang hakiki."</p>
+                                <p>Putra dari Bpk. Muhamad Idris <br> & <br> Ibu Iswatun Hasanah</p>
+                    </div>
+                
+                    <div class="col-lg-6">
+                                <h3>Siti Aisah S.Ak</h3>
+                                <p>"Jangan cintai seseorang yang tidak mencintai Allah. Jika ia bisa meninggalkan Allah, maka ia juga bisa meninggalkanmu."</p>
+                                <p>Putri dari Bpk. Usman <br> & <br>Ibu Anah</p>
+                    </div>
+            </div>
+        </section>
+        
+        <section id="time" class="time">
+            <div class="container">
+                <h1>Waktu & Tempat</h1>
+                <div class="row">
+                    <div class="col-lg">
+                        <h3>Akad Nikah</h3>
+                        <p class="event-date"><i class="bi bi-calendar3"></i> Minggu, 21 Juni 2026</p>
+                        <p class="event-time"><i class="bi bi-clock"></i> Pukul XX.00 WIB s/d XX.00 WIB</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> Kediaman Mampelai Wanita, Kp. Kadu Seeng, Saketi, Pandeglang, Banten</p>
+                    </div>
+                    <!-- <div class="col-lg">
+                        <h3>Resepsi</h3>
+                        <p class="event-date"><i class="bi bi-calendar3"></i> Sabtu, 12 April 2025</p>
+                        <p class="event-time"><i class="bi bi-clock"></i> Pukul 11.00 WIB s/d 14.00 WIB</p>
+                        <p class="event-location"><i class="bi bi-geo-alt"></i> Gedung Serba Guna Masjid Jami Nurul Falah, Jakarta Selatan</p>
+                    </div> -->
+
+                    <h1>Google Maps</h1>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15859.915002921462!2d105.96395521245638!3d-6.396739694616631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjMnNDguMyJTIDEwNcKwNTgnMDguMSJF!5e0!3m2!1sen!2ssa!4v1778096678197!5m2!1sen!2ssa" width="600" height="450" style="border:0;" allowfullscreen="yes" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="our" class="our py-5">
+            <div class="container">
+                <h1 class="text-center mb-4">Our Story</h1>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary our-center">Awal Pertemuan</h4>
+                                <p class="card-text">
+                                "Sehari-hari, memperbaiki kendala sistem dan melayani ratusan mahasiswa sudah menjadi rutinitas saya di ruang IT. Namun, saat Aisah datang meminta bantuan untuk mengecek laptopnya, ada sesuatu yang berbeda. Rasanya, bukan cuma laptopnya yang butuh diperbaiki, tapi hati saya tiba-tiba menemukan 'koneksi' yang tepat.
+Dari urusan perbaikan laptop, obrolan kami terus terhubung. Oktober 2023, di bawah hangatnya matahari Car Free Day, kami berjalan bersama dan menyadari bahwa 'jaringan' di antara kami semakin kuat."
+                                </p>
+                                <p class="card-text">
+                                 "Seiring waktu, kami semakin mengenal satu sama lain. Dari obrolan ringan hingga diskusi mendalam, kami menemukan banyak kesamaan dan saling melengkapi. Setiap pertemuan membuat kami semakin yakin bahwa ini bukan sekadar 'koneksi' biasa, tapi sebuah 'jaringan' yang kuat dan penuh potensi untuk tumbuh bersama."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title text-danger our-center">Perjalanan Sulit</h4>
+                                <p class="card-text">
+                                    Tak pernah terbayangkan, perjalanan cinta kami penuh dengan tantangan, mulai dari perbedaan latar belakang, sifat, pekerjaan, hingga waktu. Namun, setiap rintangan justru memperkuat ikatan kami. Kami belajar untuk saling memahami, menghargai perbedaan, dan tumbuh bersama dalam menghadapi segala ujian.
+                                </p>
+                                <h4 class="card-title text-success mt-3 our-center">Jenjang Serius</h4>
+                                <p class="card-text">
+                                    Setelah melewati berbagai tantangan, kami memutuskan untuk melangkah ke jenjang yang lebih serius. Kami yakin bahwa dengan saling mendukung dan mencintai, kami bisa menghadapi segala rintangan yang mungkin datang di masa depan. Kami berkomitmen untuk terus tumbuh bersama, membangun keluarga yang penuh cinta, dan menjalani kehidupan yang bahagia bersama-sama.
+                                    Pada tanggal 12 April 2026 Fahmi resmi melamar Aisah, dan kini kami siap untuk melangkah ke jenjang pernikahan dengan penuh keyakinan dan cinta yang tulus. Kami percaya bahwa perjalanan cinta kami adalah anugerah yang indah, dan kami sangat bersyukur bisa menemukan satu sama lain di tengah kehidupan yang penuh warna ini.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="close" class="close">
+            <div class="container">
+                <h1>Konfirmasi kehadiran</h1>
+                <div class="row">
+                    <div class="col-lg">
+                        <a id="whatsapplink3"  class="btn btn-danger btn-lg w-100" target="_blank">Kurang Pasti</a>
+                    </div>
+                    <div class="col-lg">
+                        <a id="whatsapplink2"  class="btn btn-warning btn-lg w-100" target="_blank">Pasti</a>
+                    </div>
+                    <div class="col-lg">
+                        <a id="whatsapplink1"  class="btn btn-success btn-lg w-100" target="_blank">Sangat Pasti</a>
+                    </div>
+                </div>
+                <h1>Wedding Gift</h1>
+                <div class="row">
+                    <div class="col-lg">
+                            <h2 class="fw-bold">Fahmi Rasyied</h2>
+                            <h4 class="text-primary">BCA</h4>
+                            <h6 id="rek1" class="fw-bold">2180208383</h6>
+                            <button class="btn btn-outline-primary btn-sm mt-2" onclick="copyToClipboard('rek1')">
+                                Salin Nomor Rekening
+                            </button>
+                    </div>
+                    <div class="col-lg">
+                            <h2 class="fw-bold">Siti Aisah</h2>
+                            <h4 class="text-warning">BRI</h4>
+                            <h6 id="rek2" class="fw-bold">##############</h6>
+                            <button class="btn btn-outline-warning btn-sm mt-2" onclick="copyToClipboard('rek2')">
+                                Salin Nomor Rekening
+                            </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
