@@ -556,6 +556,52 @@
                     </div>
                 </section>
 
+                <!-- Konfirmasi Kehadiran & Ucapan Baru -->
+                <section class="bg-light-dark my-0 pb-0 pt-3" id="konfirmasi-kehadiran">
+                    <div class="container">
+                        <div class="border rounded-5 shadow p-3 mb-2">
+                            <h2 class="font-esthetic text-center mt-2 mb-4" style="font-size: 2.25rem;">Konfirmasi Kehadiran</h2>
+
+                            <div class="mb-3">
+                                <label for="konfirmasi-nama" class="form-label my-1"><i class="fa-solid fa-person me-2"></i>Nama Lengkap</label>
+                                <input dir="auto" type="text" class="form-control shadow-sm rounded-4" id="konfirmasi-nama" minlength="2" maxlength="100" placeholder="Isikan Nama Lengkap Anda" autocomplete="name">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="konfirmasi-presensi" class="form-label my-1"><i class="fa-solid fa-person-circle-question me-2"></i>Konfirmasi Presensi</label>
+                                <select class="form-select shadow-sm rounded-4" id="konfirmasi-presensi" autocomplete="off">
+                                    <option value="" selected disabled>Pilih Konfirmasi</option>
+                                    <option value="hadir">&#9989; Hadir</option>
+                                    <option value="tidak_hadir">&#10060; Tidak Hadir</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="konfirmasi-komentar" class="form-label my-1"><i class="fa-solid fa-comment me-2"></i>Ucapan &amp; Doa</label>
+                                <textarea dir="auto" class="form-control shadow-sm rounded-4" id="konfirmasi-komentar" rows="4" minlength="1" maxlength="1000" placeholder="Tulis Ucapan dan Doa" autocomplete="off"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="konfirmasi-gif" class="form-label my-1"><i class="fa-solid fa-photo-film me-2"></i>GIF URL <small class="text-muted">(opsional)</small></label>
+                                <input type="url" class="form-control shadow-sm rounded-4" id="konfirmasi-gif" placeholder="https://media.tenor.com/..." autocomplete="off">
+                            </div>
+
+                            <div class="mb-3 d-none" id="konfirmasi-gif-preview-wrapper">
+                                <img id="konfirmasi-gif-preview" src="./assets/images/placeholder.webp" alt="GIF Preview" class="rounded-4 shadow-sm" style="max-width: 100%; max-height: 200px;">
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-sm rounded-4 shadow m-1" id="konfirmasi-submit-btn">
+                                    <i class="fa-solid fa-paper-plane me-2"></i>Kirim Konfirmasi
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Daftar Konfirmasi -->
+                        <div class="py-3" id="konfirmasi-list"></div>
+                    </div>
+                </section>
+
                 <!-- Comment -->
                 <section class="bg-light-dark my-0 pb-0 pt-3" id="comment">
                     <div class="container">
@@ -669,6 +715,12 @@
                         <a class="nav-link" href="#gallery">
                             <i class="fa-solid fa-images"></i>
                             <span class="d-block" style="font-size: 0.7rem;">Galeri</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#konfirmasi-kehadiran">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <span class="d-block" style="font-size: 0.7rem;">RSVP</span>
                         </a>
                     </li>
                     <li class="nav-item">
